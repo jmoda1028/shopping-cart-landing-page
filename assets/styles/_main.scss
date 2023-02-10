@@ -1,0 +1,93 @@
+.main{
+    width: 100vw;
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .card__header{
+                padding: 26px 0;
+
+                h1{
+                    color: #0d0d0d;
+                    font-weight: 700;
+                }
+            }
+
+            .product-items{
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+                gap: 2rem;
+                justify-content: space-between;
+                align-content: center;
+
+                .product{
+                    width: 250px;
+                    height: 380px;
+                    display: flex;
+                    justify-content: end;
+                    flex-direction: column;
+                    align-items: start;
+
+                    .product-img{
+                        width: 100%;
+                        height: 100%;
+                        background-color: #d1e0e0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+
+                        &:hover{
+                            opacity:0.6;
+                            transform: scale(1.1,1.1);
+                            border: 1px solid #0d0d0d;
+                            transition: all 0.5s ease-in-out;
+                        }
+
+                        img{
+                            width: 250px;
+                            height: 250px;
+                        }
+                    }
+                    .details{
+                        width: 100%;
+                        color: #0d0d0d;
+                        padding-top: 20px;
+
+                        p{
+                            font-weight: 700;
+                        }
+
+                        .infos{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-top: 2px;
+
+                            span{
+                                font-weight: 600;
+                            }
+
+                            .add-to--cart{
+                                padding: 5px 15px;
+                                background: #262626;
+                                border: none;
+                                border-radius: 20px;
+                                color: #fff;
+                                cursor: pointer;
+
+                                &:hover{
+                                    color: #0d0d0d;
+                                    background: #cccccc;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
