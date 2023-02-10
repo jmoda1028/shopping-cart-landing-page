@@ -31,6 +31,72 @@ body {
   display: block;
 }
 
+.purchase-modal {
+  display: none;
+  position: absolute;
+  width: 280px;
+  height: 245px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #3c3e41;
+  border-radius: 8px;
+  padding-top: 65px;
+  z-index: 101;
+}
+.purchase-modal .purchase__success {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 38px;
+  row-gap: 38px;
+}
+.purchase-modal .purchase__success .check-icon {
+  position: absolute;
+  top: -100px;
+  background: #d1e0e0;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.purchase-modal .purchase__success .check-icon img {
+  width: 45px;
+  height: 45px;
+}
+.purchase-modal .purchase__success .purchase--message {
+  text-align: center;
+}
+.purchase-modal .purchase__success .purchase--message h3 {
+  font-size: 28px;
+  font-weight: 500;
+}
+.purchase-modal .purchase__success .purchase--message p {
+  font-weight: 500;
+}
+.purchase-modal .purchase__success .success-btn {
+  background: #d1e0e0;
+  width: 231px;
+  border: none;
+  padding: 3px 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.purchase-modal .purchase__success .success-btn:hover {
+  background: #5d8989;
+  color: #fff;
+}
+
+.show-purchase--modal {
+  display: block;
+}
+
 .cart-modal--menu {
   display: none;
   background: #3c3e41;
@@ -222,7 +288,7 @@ body {
   background: #ff014f;
   border-radius: 50%;
   color: #fff;
-  z-index: 100;
+  z-index: 90;
   top: -5px;
   right: -3px;
 }

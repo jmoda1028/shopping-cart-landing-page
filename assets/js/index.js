@@ -1,36 +1,22 @@
 // toggle cart
-const backdrop = document.querySelector('.backdrop');
+const backDrop = document.querySelector('.backdrop');
 const cartBtn = document.querySelector('.cart-icon');
 const cartModal = document.querySelector('.cart-modal--menu');
 const btnExit = document.querySelector('.exit-btn');
 
 const toggleCart = () => {
-    backdrop.classList.toggle('show-backdrop');
+  backDrop.classList.toggle('show-backdrop');
     cartModal.classList.toggle('show__cart-modal--menu');
 }
 
+const hideCart = () => {
+  cartModal.classList.remove("show__cart-modal--menu");
+  backDrop.classList.remove("show-backdrop");
+}
+
 cartBtn.addEventListener("click", toggleCart);
-backdrop.addEventListener("click", toggleCart);
+backDrop.addEventListener("click", hideCart);
 btnExit.addEventListener("click", toggleCart)
-
-
-//disable purchase
-// const cartQuantity = document.getElementsByClassName('cart-quantity')[0];
-// const btnBuy = document.querySelector('.btn__buy');
-
-// console.log(cartQuantity);
-
-// if(cartQuantity.textContent === '0'){
-//   btnBuy.setAttribute('disabled', '');
-//   btnBuy.classList.add("empty--cart");
-
-//   console.log('nakadisable');
-// } else{
-//   btnBuy.removeAttribute('disabled');
-//   btnBuy.classList.remove("empty--cart");
-
-//   console.log('hindi');
-// }
 
 
 // update total price
@@ -70,9 +56,6 @@ if(total === 0){
 }
 
 
-
-
-
 // update quantity input
 let quantityInput = document.getElementsByClassName('product-quantity')[0];
 
@@ -92,7 +75,7 @@ for (let i = 0; i < quantityInput; i++){
 
 // add products to cart
 const productRow = document.getElementsByClassName('product-row');
-const addToCart = document.getElementsByClassName('add-to--cart');
+const addToCart = document.querySelectorAll('.add-to--cart');
 
 const addItemToCart = (price, imageSrc, productTitle) => {
     let productRow = document.createElement('div');
@@ -164,16 +147,44 @@ for (let i = 0; i < removeBtn.length; i++) {
 
 // purchase items
 const purchaseBtn = document.querySelector('.purchase-btn');
+const purchaseModal = document.querySelector('.purchase-modal');
+const successBtn = document.querySelector('.success-btn');
 
 const purchaseBtnClicked = () => {
-  alert ('Thank you for your purchase');
-  
- let cartItems = document.getElementsByClassName('product-rows')[0]
+  // document.getElementsByClassName('purchase-modal').style.display="block";
+
+  let cartItems = document.getElementsByClassName('product-rows')[0]
  while (cartItems.hasChildNodes()) {
    cartItems.removeChild(cartItems.firstChild)
  }
+
   updateCartPrice()
-  toggleCart()
+
+  purchaseModal.classList.add("show-purchase--modal");
+  backDrop.classList.add('show-backdrop');
+  cartModal.classList.remove('show__cart-modal--menu');
+
+}
+
+const closePurchaseModal = () => {
+  purchaseModal.classList.remove("show-purchase--modal");
+  backDrop.classList.remove("show-backdrop");
 }
 
 purchaseBtn.addEventListener('click', purchaseBtnClicked)
+backDrop.addEventListener("click", closePurchaseModal);
+successBtn.addEventListener("click", closePurchaseModal);
+
+
+// const purchaseBtnClicked = () => {
+//   alert ('Thank you for your purchase');
+  
+//  let cartItems = document.getElementsByClassName('product-rows')[0]
+//  while (cartItems.hasChildNodes()) {
+//    cartItems.removeChild(cartItems.firstChild)
+//  }
+//   updateCartPrice()
+//   toggleCart()
+// }
+
+
