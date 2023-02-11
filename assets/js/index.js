@@ -4,9 +4,10 @@ const cartBtn = document.querySelector('.cart-icon');
 const cartModal = document.querySelector('.cart-modal--menu');
 const btnExit = document.querySelector('.exit-btn');
 
+
 const toggleCart = () => {
   backDrop.classList.toggle('show-backdrop');
-    cartModal.classList.toggle('show__cart-modal--menu');
+  cartModal.classList.toggle('show__cart-modal--menu');
 }
 
 const hideCart = () => {
@@ -52,7 +53,7 @@ if(i && i !== 0){
 if(total === 0){
   btnBuy.setAttribute('disabled', '');
   btnBuy.classList.add("empty--cart");
-}
+  }
 }
 
 
@@ -76,6 +77,9 @@ for (let i = 0; i < quantityInput; i++){
 // add products to cart
 const productRow = document.getElementsByClassName('product-row');
 const addToCart = document.querySelectorAll('.add-to--cart');
+const showCartAlertMsg = document.querySelector('.show__cart-alert--message');
+const cartAlertMsg = document.querySelector('.cart-alert--message');
+
 
 const addItemToCart = (price, imageSrc, productTitle) => {
     let productRow = document.createElement('div');
@@ -85,7 +89,12 @@ const addItemToCart = (price, imageSrc, productTitle) => {
 
     for (let i = 0; i < cartImage.length; i++){
       if (cartImage[i].src == imageSrc){
-        alert ('This item has already been added to the cart')
+        // alert ('This item has already been added to the cart')
+        cartAlertMsg.classList.add("show__cart-alert--message");
+        setTimeout(() => {
+          cartAlertMsg.classList.remove("show__cart-alert--message");
+        }, "4000")
+        
         return;
       }
     }
@@ -151,11 +160,10 @@ const purchaseModal = document.querySelector('.purchase-modal');
 const successBtn = document.querySelector('.success-btn');
 
 const purchaseBtnClicked = () => {
-  // document.getElementsByClassName('purchase-modal').style.display="block";
 
   let cartItems = document.getElementsByClassName('product-rows')[0]
- while (cartItems.hasChildNodes()) {
-   cartItems.removeChild(cartItems.firstChild)
+  while (cartItems.hasChildNodes()) {
+  cartItems.removeChild(cartItems.firstChild)
  }
 
   updateCartPrice()
@@ -174,17 +182,3 @@ const closePurchaseModal = () => {
 purchaseBtn.addEventListener('click', purchaseBtnClicked)
 backDrop.addEventListener("click", closePurchaseModal);
 successBtn.addEventListener("click", closePurchaseModal);
-
-
-// const purchaseBtnClicked = () => {
-//   alert ('Thank you for your purchase');
-  
-//  let cartItems = document.getElementsByClassName('product-rows')[0]
-//  while (cartItems.hasChildNodes()) {
-//    cartItems.removeChild(cartItems.firstChild)
-//  }
-//   updateCartPrice()
-//   toggleCart()
-// }
-
-

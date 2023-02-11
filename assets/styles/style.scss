@@ -45,6 +45,7 @@ body {
   padding-top: 65px;
   // color: black;
   z-index: 101;
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);
 
   .purchase__success{
     height: 100%;
@@ -106,7 +107,39 @@ body {
 
 .show-purchase--modal{
   display: block;
+ 
 }
+
+.cart-alert--message{
+  display: none;
+  position: fixed;
+  width: 100vw;
+  top: 5px;
+  
+
+
+  .cart--warning{
+    margin: 0 auto;
+    background: #ff8095;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(255, 102, 128,0.75);
+    transition: all 0.3s;
+  
+    p{
+      color: black;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.7px;
+      padding: 5px 16px;
+    }
+  }
+}
+
+.show__cart-alert--message{
+  display: block;
+}
+
 
 @import './cart';
 
