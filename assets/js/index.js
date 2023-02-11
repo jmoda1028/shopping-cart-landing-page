@@ -93,7 +93,7 @@ const addItemToCart = (price, imageSrc, productTitle) => {
         cartAlertMsg.classList.add("show__cart-alert--message");
         setTimeout(() => {
           cartAlertMsg.classList.remove("show__cart-alert--message");
-        }, "4000")
+        }, "2000")
         
         return;
       }
